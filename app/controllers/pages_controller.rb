@@ -4,4 +4,8 @@ class PagesController < ApplicationController
     @students = Student.all
   end
 
+  def review
+    @student = Student.find(params[:student_id])
+  end
+
 end
