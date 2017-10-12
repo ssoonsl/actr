@@ -49,3 +49,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Additional Gems
+# Flexible authentication solution for Rails with Warden
+gem 'devise'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
+# Official Sass port of Bootstrap 2 and 3.
+gem 'bootstrap-sass'
+# Slim templates generator for Rails 3, 4 and 5
+gem "slim-rails"
