@@ -1,0 +1,13 @@
+.container-fluid
+  .row
+    .col-md-4.col-md-offset-4.text-center
+
+      h1 Teamwork: Self-Reflections and Teammate Feedback (Week 9)
+
+      .well You have now completed your shopping cart app and will be embarking on the final group project of the bootcamp: the capstone. Take some time to reflect on how well you have interacted and worked with your classmates and how you will apply it going forward in your coming capstone project team. You will also have the opportunity to offer words of encouragement to or feedback for your teammates!
+
+      h2 Pick your name to continue
+
+      .well
+        - @students.each do |student|
+          =<> link_to student.name, review_path(student_id: student), class: 'btn btn-primary'
