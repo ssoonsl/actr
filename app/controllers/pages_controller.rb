@@ -9,4 +9,9 @@ class PagesController < ApplicationController
     @students = Student.all
   end
 
+  def self
+    @student = Student.find(params[:student_id])
+    @self_reflection = SelfReflection.new
+  end
+
 end

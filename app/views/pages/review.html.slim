@@ -1,3 +1,5 @@
+= render 'layouts/navbar'
+
 .container-fluid
   .row
     .col-md-4.col-md-offset-4.text-center
@@ -6,7 +8,7 @@
 
       .well
         span.label.label-danger<> Pending
-        = link_to 'Answer the questions on self-reflection'
+        = link_to 'Answer the questions on self-reflection', review_self_path(student_id: @student)
         span.label.label-success<> Complete
         | Answer the questions on self-reflection
 
