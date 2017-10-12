@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012160248) do
+ActiveRecord::Schema.define(version: 20171012162614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,18 @@ ActiveRecord::Schema.define(version: 20171012160248) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "teammate_feedbacks", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "teammate_id", null: false
+    t.text "answer1"
+    t.text "answer2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_teammate_feedbacks_on_student_id"
+    t.index ["teammate_id"], name: "index_teammate_feedbacks_on_teammate_id"
+  end
+
   add_foreign_key "self_reflections", "students"
+  add_foreign_key "teammate_feedbacks", "students"
+  add_foreign_key "teammate_feedbacks", "students", column: "teammate_id"
 end
