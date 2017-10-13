@@ -1,0 +1,30 @@
+= render 'layouts/navbar'
+
+.container-fluid
+  .row
+    .col-md-4.col-md-offset-4.text-center
+
+      h1 Step 1: Self-Reflection
+
+      .well
+        span.label.label-danger<> Pending
+        = link_to 'Answer the questions on self-reflection', review_self_path(student_id: @student)
+        span.label.label-success<> Complete
+        | Answer the questions on self-reflection
+
+      h1 Step 2: Teammate Feedback
+
+      p You've spent the past 2 weeks working in teams of (mostly) 3 during the shopping cart app. Provide feedback to your teammates as well! Feedback shared with your teammates will be aggregated.
+      p Try to provide constructive feedback and expound on your points as much as possible.
+
+      table.table.table-hover.table-striped
+        thead
+          tr
+            th Classmate
+            th
+        tbody
+          - @students.each do |student|
+            tr
+              td = student.name
+              td
+                span.label.label-success<> Complete

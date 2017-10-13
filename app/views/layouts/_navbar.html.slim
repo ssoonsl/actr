@@ -1,0 +1,9 @@
+nav.navbar.navbar-inverse
+  .container-fluid
+
+    = link_to url_for(:back), class: 'navbar-text' do
+      span.glyphicon.glyphicon-chevron-left<>
+      | Go back a page
+
+    p.navbar-text.pull-right
+      strong Welcome, #{@student.name}

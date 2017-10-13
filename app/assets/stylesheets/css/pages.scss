@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Dosis-Regular';
+  src:
+    url(/assets/Dosis-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TitilliumWeb';
+  src:
+    url(/assets/TitilliumWeb-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'Dosis-Regular', Arial;
+  font-weight: bold;
+  margin: 40px;
+}
+
+body {
+  font-family: 'TitilliumWeb', serif;
+  font-size: 20px;
+  line-height: 30px;
+}
