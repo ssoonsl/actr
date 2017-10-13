@@ -1,0 +1,16 @@
+.container-fluid
+  .row
+    .col-md-6.col-md-offset-3
+
+      h1 Teammate Feedback: #{@teammate.name}
+
+      = simple_form_for @teammate_feedback, url: review_team_submit_path(student_id: @student, id: @teammate), method: :post do |f|
+
+        p What are you grateful to this teammate for? Feel free to talk about your observations of this person or how they have positively affected you. You may also share anything you have learned from this teammate.
+        = f.input :answer1, label: false
+
+        p Do you have any constructive feedback for this teammate? Feel free to offer words of encouragement as well!
+        = f.input :answer2, label: false
+
+        .text-center
+          = f.submit 'Submit feedback', class: 'btn btn-default'

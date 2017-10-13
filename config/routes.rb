@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get 'review/:student_id/self', to: 'pages#self', as: 'review_self'
   post 'review/:student_id/self_submit', to: 'pages#self_submit', as: 'review_self_submit'
 
+  get 'review/:student_id/team', to: 'pages#team', as: 'review_team'
+  post 'review/:student_id/team_submit/:id', to: 'pages#team_submit', as: 'review_team_submit'
+
 end

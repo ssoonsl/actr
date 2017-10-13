@@ -14,4 +14,10 @@ class PagesController < ApplicationController
     @self_reflection = SelfReflection.new
   end
 
+  def team
+    @student = Student.find(params[:student_id])
+    @teammate_feedback = TeammateFeedback.new
+    @teammate = Student.find(params[:id])
+  end
+
 end
