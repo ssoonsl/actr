@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
 
   def landing
-    @students = Student.all
+    @students = Student.order(name: :asc)
   end
 
   def review
     @student = Student.find(params[:student_id])
-    @students = Student.all
+    @students = Student.order(name: :asc)
   end
 
   def self
@@ -16,8 +16,28 @@ class PagesController < ApplicationController
 
   def team
     @student = Student.find(params[:student_id])
-    @teammate_feedback = TeammateFeedback.new
+    @feedback = Feedback.new
     @teammate = Student.find(params[:id])
+  end
+
+  def team_submit
+    @student = Student.find(params[:student_id])
+    @teammate = Student.find(params[:id])
+
+    @feedback = @student.feedback_as_reviewer.build(feedback_params)
+    @feedback.reviewee = @teammate
+    byebug
+    if @feedback.save
+      redirect_to review_path(student_id: @student)
+    else
+      render :team
+    end
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:answer1, :answer2)
   end
 
 end

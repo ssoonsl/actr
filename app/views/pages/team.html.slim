@@ -4,7 +4,7 @@
 
       h1 Teammate Feedback: #{@teammate.name}
 
-      = simple_form_for @teammate_feedback, url: review_team_submit_path(student_id: @student, id: @teammate), method: :post do |f|
+      = simple_form_for @feedback, url: review_team_submit_path(student_id: @student, id: @teammate), method: :post do |f|
 
         p What are you grateful to this teammate for? Feel free to talk about your observations of this person or how they have positively affected you. You may also share anything you have learned from this teammate.
         = f.input :answer1, label: false
