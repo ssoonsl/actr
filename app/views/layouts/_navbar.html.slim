@@ -5,5 +5,9 @@ nav.navbar.navbar-inverse
       span.glyphicon.glyphicon-chevron-left<>
       | Go back a page
 
+    = link_to root_path, class: 'navbar-text' do
+      span.glyphicon.glyphicon-home<>
+      | Go home
+
     p.navbar-text.pull-right
-      strong Welcome, #{@student.name}
+      strong #{welcome_message}
