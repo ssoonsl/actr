@@ -1,25 +1,74 @@
 .container-fluid
   .row
-    .col-md-8.col-md-offset-2
+    .col-md-10.col-md-offset-1
+      ul.nav.nav-tabs
+        li.active
+          a href='#overview' data-toggle='tab' Overview
+        li
+          a href='#self' data-toggle='tab' Self-reflections
+        li
+          a href='#team' data-toggle='tab' Teammate feedback
 
-      h1 Manage submissions
+      .tab-content.clearfix
+        .tab-pane.active#overview
+          .col-md-8.col-md-offset-2
 
-      table.table.table-hover.table-striped.table-bordered
-        thead
-          tr
-            th Student
-            th.text-center Self-reflection?
-            th.text-center Teammate feedback #
-        tbody
-          - @students.each do |student|
-            tr
-              td = student.name
-              td.text-center
-                - if student.self_reflections.empty?
-                  span.label.label-danger<> Pending
-                - else
-                  span.label.label-success<> Completed
-              td.text-center = student.feedback_as_reviewer.count
+            h1 Overview
+
+            table.table.table-hover.table-striped.table-bordered
+              thead
+                tr
+                  th Student
+                  th.text-center Self-reflection?
+                  th.text-center Teammate feedback #
+              tbody
+                - @students.each do |student|
+                  tr
+                    td = student.name
+                    td.text-center
+                      - if student.self_reflections.empty?
+                        span.label.label-danger<> Pending
+                      - else
+                        span.label.label-success<> Completed
+                    td.text-center = student.feedback_as_reviewer.count
+
+        .tab-pane#self
+          h1 Self-reflections
+
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th Student
+                th Reflect on the 3 team projects you've done so far. What have you learned about yourself and how you work in teams? What worked and what didn't?
+                th How would you apply your observations from Q1 in your capstone project? What would you do differently?
+            tbody
+              - @students.each do |student|
+                tr
+                  td = student.name
+                  - unless student.self_reflections.empty?
+                    td = student.self_reflections.first.answer2
+                    td = student.self_reflections.first.answer1
+                  - else
+                    td
+                    td
+
+        .tab-pane#team
+          h1 Teammate feedback
+
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th Reviewer
+                th Reviewee
+                th What are you grateful to this teammate for? Feel free to talk about your observations of this person or how they have positively affected you. You may also share anything you have learned from this teammate.
+                th Do you have any constructive feedback for this teammate? Feel free to offer words of encouragement as well!
+            tbody
+              - @feedback.each do |feedback|
+                tr
+                  td = feedback.reviewer.name
+                  td = feedback.reviewee.name
+                  td = feedback.answer1
+                  td = feedback.answer2
 
       .text-center
         = link_to 'Export all data to .xls', admin_export_path(format: 'xls'), class: 'btn btn-default'

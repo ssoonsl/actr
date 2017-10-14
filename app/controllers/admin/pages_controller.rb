@@ -2,6 +2,7 @@ class Admin::PagesController < ApplicationController
 
   def manage
     @students = Student.order(name: :asc)
+    @feedback = Feedback.all
   end
 
   def export
