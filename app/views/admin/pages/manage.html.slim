@@ -1,0 +1,25 @@
+.container-fluid
+  .row
+    .col-md-8.col-md-offset-2
+
+      h1 Manage submissions
+
+      table.table.table-hover.table-striped.table-bordered
+        thead
+          tr
+            th Student
+            th.text-center Self-reflection?
+            th.text-center Teammate feedback #
+        tbody
+          - @students.each do |student|
+            tr
+              td = student.name
+              td.text-center
+                - if student.self_reflections.empty?
+                  span.label.label-danger<> Pending
+                - else
+                  span.label.label-success<> Completed
+              td.text-center = student.feedback_as_reviewer.count
+
+      .text-center
+        = link_to 'Export all data to .xls', admin_export_path(format: 'xls'), class: 'btn btn-default'

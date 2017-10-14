@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'manage', to: 'pages#manage', as: 'manage'
+    get 'export', to: 'pages#export', as: 'export'
   end
 
 end
