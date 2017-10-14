@@ -1,0 +1,9 @@
+h1 Part A: Self-Reflection
+
+.well
+  - if @student.self_reflections.empty?
+    = link_to 'Answer the questions on self-reflection', review_self_path(student_id: @student)
+    span.label.label-danger<> Pending
+  - else
+    | Answer the questions on self-reflection
+    span.label.label-success<> Completed

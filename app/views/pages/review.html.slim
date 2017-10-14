@@ -1,35 +1,10 @@
 .container-fluid
   .row
-    .col-md-4.col-md-offset-4.text-center
 
-      h1 Part A: Self-Reflection
+    = render 'checklist'
 
-      .well
-        span.label.label-danger<> Pending
-        = link_to 'Answer the questions on self-reflection', review_self_path(student_id: @student)
-        span.label.label-success<> Complete
-        | Answer the questions on self-reflection
+    .col-md-4.col-md-offset-1.text-center
 
-      h1 Part B: Teammate Feedback
+      = render 'self_feedback'
 
-      p You've spent 5 weeks working in teams. Have you learned more about your teammates? Provide feedback to them as well! Feedback shared with your teammates will be aggregated.
-      hr
-
-      .well
-        strong You are required to fill in feedback for your shopping cart teammates, but feel free to leave feedback for anyone you have previously worked with as well!
-
-      hr
-      small
-        em Try to provide constructive feedback and expound on your points as much as possible.
-
-      table.table.table-hover.table-striped
-        thead
-          tr
-            th
-            th
-        tbody
-          - @students.each do |student|
-            tr
-              td = link_to student.name, review_team_path(student_id: @student, id: student)
-              td
-                span.label.label-success<> Complete
+      = render 'team_feedback'

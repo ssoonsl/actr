@@ -1,0 +1,28 @@
+.col-md-2.col-md-offset-1#checklist
+
+  h1 Checklist
+
+  ul
+    - if @student.self_reflections.empty?
+      li.pending
+        i.fa.fa-square-o<>
+        | Complete self-reflection
+    - else
+      li.completed
+        i.fa.fa-check-square-o<>
+        | Complete self-reflection
+
+    - if pending_teammate_feedback?(@student)
+      li.pending
+        i.fa.fa-square-o<>
+        | Provide feedback on shopping cart teammates
+    - else
+      li.completed
+        i.fa.fa-check-square-o<>
+        | Provide feedback on shopping cart teammates
+
+    li.pending
+      i.fa.fa-square-o<>
+      span
+        | (optional)
+      |  Provide feedback on previous teammates
