@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_action :verify_passcode, except: [:landing]
+
   def landing
     @students = Student.order(name: :asc)
   end

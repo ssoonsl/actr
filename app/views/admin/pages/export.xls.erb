@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Self Reflections">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Student</Data></Cell>
+        <Cell><Data ss:Type="String">Self-reflection</Data></Cell>
+        <Cell><Data ss:Type="String">Reflect on the 3 team projects you've done so far. What have you learned about yourself and how you work in teams? What worked and what didn't?</Data></Cell>
+        <Cell><Data ss:Type="String">How would you apply your observations from Q1 in your capstone project? What would you do differently?</Data></Cell>
+      </Row>
+
+      <% @students.each do |student| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= student.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= student.self_reflections.count %></Data></Cell>
+          <% unless student.self_reflections.empty? %>
+            <Cell><Data ss:Type="String"><%= student.self_reflections.first.answer1 %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= student.self_reflections.first.answer1 %></Data></Cell>
+          <% end %>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+
+  <Worksheet ss:Name="Teammate Feedback">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Reviewer</Data></Cell>
+        <Cell><Data ss:Type="String">Reviewee</Data></Cell>
+        <Cell><Data ss:Type="String">What are you grateful to this teammate for? Feel free to talk about your observations of this person or how they have positively affected you. You may also share anything you have learned from this teammate.</Data></Cell>
+        <Cell><Data ss:Type="String">Do you have any constructive feedback for this teammate? Feel free to offer words of encouragement as well!</Data></Cell>
+      </Row>
+
+      <% @feedback.each do |feedback| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= feedback.reviewer.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= feedback.reviewee.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= feedback.answer1 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= feedback.answer2 %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+
+</Workbook>

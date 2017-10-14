@@ -68,28 +68,37 @@ $color: rgb(255,215,7);
 $colorDark: darken($color, 10%) transparent;
 
 #checklist {
-   padding: 2em;
-   background: $color;
-   position: sticky;
-   top: 200px;
-   min-height: 10em;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  padding: 2em;
+  background: $color;
+  position: sticky;
+  top: 200px;
+  min-height: 10em;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
-#checklist:after {
-   content: "";
-   position: absolute;
-   bottom: -2em;
-   left: 0;
-   right: 2em;
-   border-width: 1em;
-   border-style: solid;
-   border-color: $color;
+.alert-danger p {
+  font-size: 12px;
 }
-#checklist:before {
-   content: "";
-   position: absolute;
-   bottom: -2em;
-   right: 0;
-   border-width: 2em 2em 0 0;
-   border-style: solid;
-   border-color: $colorDark;
+
+#self, #team {
+  font-size: 18px;
+}
+
+.nav-container {
+  display: flex;
+
+  .home {
+    flex-grow: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
