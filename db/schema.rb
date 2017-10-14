@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20171012162614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewee_id", null: false
+    t.text "answer1"
+    t.text "answer2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewee_id"], name: "index_feedbacks_on_reviewee_id"
+    t.index ["reviewer_id"], name: "index_feedbacks_on_reviewer_id"
+  end
+
   create_table "self_reflections", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.text "answer1", null: false
@@ -31,18 +42,7 @@ ActiveRecord::Schema.define(version: 20171012162614) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teammate_feedbacks", force: :cascade do |t|
-    t.bigint "student_id", null: false
-    t.bigint "teammate_id", null: false
-    t.text "answer1"
-    t.text "answer2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_teammate_feedbacks_on_student_id"
-    t.index ["teammate_id"], name: "index_teammate_feedbacks_on_teammate_id"
-  end
-
+  add_foreign_key "feedbacks", "students", column: "reviewee_id"
+  add_foreign_key "feedbacks", "students", column: "reviewer_id"
   add_foreign_key "self_reflections", "students"
-  add_foreign_key "teammate_feedbacks", "students"
-  add_foreign_key "teammate_feedbacks", "students", column: "teammate_id"
 end

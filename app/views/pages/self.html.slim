@@ -1,16 +1,16 @@
-= render 'layouts/navbar'
-
 .container-fluid
   .row
     .col-md-6.col-md-offset-3
 
+      h1 Self-Reflection
+    
       = simple_form_for @self_reflection, url: review_self_submit_path(student_id: @student), method: :post do |f|
-        h1.text-center Self-Reflection
 
-        p Reflect on the 3 team projects you've done so far. What have you learned about yourself and how you work in teams? What worked and what didn't?
+        p 1. Reflect on the 3 team projects you've done so far. What have you learned about yourself and how you work in teams? What worked and what didn't?
         = f.input :answer1, label: false
 
-        p How would you apply your observations from Q1 in your capstone project? What would you do differently?
+        p 2. How would you apply your observations from Q1 in your capstone project? What would you do differently?
         = f.input :answer2, label: false
 
-        = f.submit 'Submit reflection', class: 'btn btn-default'
+        .text-center
+          = f.submit 'Submit reflection', class: 'btn btn-default'
