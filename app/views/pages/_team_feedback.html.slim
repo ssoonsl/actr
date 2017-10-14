@@ -1,0 +1,31 @@
+h1 Part B: Teammate Feedback
+
+p You've spent 5 weeks working in teams. Have you learned more about your teammates? Provide feedback to them as well! Feedback shared with your teammates will be aggregated.
+hr
+
+.well
+  strong You are required to fill in feedback for:
+  ul
+    li your shopping cart teammates
+    li 1 teammate from a previous app team
+  p Feel free to leave feedback for anyone you have previously worked with as well!
+
+hr
+small
+  em Try to provide constructive feedback and expound on your points as much as possible.
+
+table.table.table-hover.table-striped
+  thead
+    tr
+      th
+      th
+  tbody
+    - @students.each do |student|
+      tr
+        td
+          - if Team.exists?(student: @student, teammate: student) && !Feedback.exists?(reviewer: @student, reviewee: student)
+            span.label.label-danger<> Pending
+          - if Feedback.exists?(reviewer: @student, reviewee: student)
+            span.label.label-success<> Completed
+        td.pull-left
+          = link_to student.name, review_team_path(student_id: @student, id: student)
