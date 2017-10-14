@@ -1,0 +1,15 @@
+.container-fluid
+  .row
+    .col-md-4.col-md-offset-4
+
+      h1 Enter your passcode to continue
+
+      = form_tag passcode_submit_path(student_id: @student), method: :post do
+        .input-group
+            = text_field_tag :passcode, nil, class: 'form-control', required: true
+            span.input-group-btn
+              = submit_tag 'Submit', class: 'btn btn-default'
+
+      - if flash.alert
+        .alert.alert-danger
+          p = flash.alert

@@ -93,3 +93,7 @@ $colorDark: darken($color, 10%) transparent;
    border-style: solid;
    border-color: $colorDark;
 }
+
+.alert-danger p {
+  font-size: 12px;
+}

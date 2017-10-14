@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get 'review/:student_id/team', to: 'pages#team', as: 'review_team'
   post 'review/:student_id/team_submit/:id', to: 'pages#team_submit', as: 'review_team_submit'
 
+  get 'passcode/:student_id', to: 'students#passcode', as: 'passcode'
+  post 'passcode/:student_id/submit', to: 'students#passcode_submit', as: 'passcode_submit'
+
 end
