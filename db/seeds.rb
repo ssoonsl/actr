@@ -1,4 +1,4 @@
-student_names = %w(Haris Jacinta Kelvin KheeShian Nazmi Nicole Regent Sarah Shafiq Sherlynn Vincent)
+student_names = %w(Haris Jacinta Kelvin KheeShian Nazmi Nicole Regent Sarah Shafiq Sherlynn Vincent z.test)
 passcodes = ENV['STUDENT_PASSCODE'].split(' ')
 
 puts 'Seeding students..'
@@ -14,4 +14,4 @@ Team.permutate_team_into_pairs(shopping_cart_teams).each do |pair|
 end
 
 puts 'Seeding admin..'
-Admin.create(email: 'admin@alphacamp.com', password: ENV['ADMIN_PASSWORD'])
+Admin.create(email: 'admin@alphacamp.tw', password: ENV['ADMIN_PASSWORD'])

@@ -1,16 +1,18 @@
 nav.navbar.navbar-inverse
-  .container-fluid
+  .container-fluid.nav-container
 
     = link_to url_for(:back), class: 'navbar-text' do
       span.glyphicon.glyphicon-chevron-left<>
-      | Go back a page
+      | Back
 
-    = link_to root_path, class: 'navbar-text' do
+    - if admin_signed_in?
+      = link_to 'View submissions', admin_manage_path, class: 'navbar-text'
+      = link_to 'Admin sign out', destroy_admin_session_path, class: 'navbar-text'
+
+    = link_to root_path, class: 'navbar-text home text-center' do
       span.glyphicon.glyphicon-home<>
-      | Go home
+      | Home
+
 
     p.navbar-text.pull-right
       strong #{welcome_message}
-
-    - if admin_signed_in?
-      = link_to 'Manage submissions', admin_manage_path, class: 'navbar-text'
