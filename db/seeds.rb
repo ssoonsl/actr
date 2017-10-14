@@ -1,8 +1,9 @@
 student_names = %w(Haris Jacinta Kelvin KheeShian Nazmi Nicole Regent Sarah Shafiq Sherlynn Vincent)
+passcodes = ENV['STUDENT_PASSCODE'].split(' ')
 
 puts 'Seeding students..'
-student_names.each do |student_name|
-  Student.create(name: student_name)
+student_names.zip(passcodes).each do |name_with_passcode|
+  Student.create(name: name_with_passcode[0], passcode: name_with_passcode[1])
 end
 
 shopping_cart_teams = [['Haris', 'Nicole', 'Sarah'], ['Jacinta', 'Kelvin', 'Shafiq'], ['Sherlynn', 'Regent'], ['Vincent', 'Nazmi', 'KheeShian']]
