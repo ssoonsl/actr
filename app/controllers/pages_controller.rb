@@ -14,6 +14,18 @@ class PagesController < ApplicationController
     @self_reflection = SelfReflection.new
   end
 
+  def self_submit
+    @student = Student.find(params[:student_id])
+
+    self_reflection_params = params.require(:self_reflection).permit(:answer1, :answer2)
+    @self_reflection = @student.self_reflections.build(self_reflection_params)
+    if @self_reflection.save
+      redirect_to review_path(student_id: @student)
+    else
+      render :self
+    end
+  end
+
   def team
     @student = Student.find(params[:student_id])
     @feedback = Feedback.new
@@ -24,20 +36,14 @@ class PagesController < ApplicationController
     @student = Student.find(params[:student_id])
     @teammate = Student.find(params[:id])
 
+    feedback_params = params.require(:feedback).permit(:answer1, :answer2)
     @feedback = @student.feedback_as_reviewer.build(feedback_params)
     @feedback.reviewee = @teammate
-    byebug
     if @feedback.save
       redirect_to review_path(student_id: @student)
     else
       render :team
     end
-  end
-
-  private
-
-  def feedback_params
-    params.require(:feedback).permit(:answer1, :answer2)
   end
 
 end
