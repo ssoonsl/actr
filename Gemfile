@@ -61,3 +61,5 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 # Slim templates generator for Rails 3, 4 and 5
 gem "slim-rails"
+# The font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
