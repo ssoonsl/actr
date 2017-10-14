@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   get 'passcode/:student_id', to: 'students#passcode', as: 'passcode'
   post 'passcode/:student_id/submit', to: 'students#passcode_submit', as: 'passcode_submit'
 
+  namespace :admin do
+    get 'manage', to: 'pages#manage', as: 'manage'
+  end
+
 end

@@ -11,3 +11,6 @@ nav.navbar.navbar-inverse
 
     p.navbar-text.pull-right
       strong #{welcome_message}
+
+    - if admin_signed_in?
+      = link_to 'Manage submissions', admin_manage_path, class: 'navbar-text'
