@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+
   root to: 'pages#landing'
 
   get 'review/:student_id', to: 'pages#review', as: 'review'

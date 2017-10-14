@@ -12,3 +12,6 @@ puts 'Seeding teams..'
 Team.permutate_team_into_pairs(shopping_cart_teams).each do |pair|
   Team.create(student: Student.find_by(name: pair[0]), teammate: Student.find_by(name: pair[1]))
 end
+
+puts 'Seeding admin..'
+Admin.create(email: 'admin@alphacamp.com', password: ENV['ADMIN_PASSWORD'])
