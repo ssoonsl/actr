@@ -1,6 +1,6 @@
 class AuthenticationService
 
-  def initialize(student, passcode={})
+  def initialize(student, passcode='')
     @student = student
     @passcode = passcode
   end
@@ -10,11 +10,11 @@ class AuthenticationService
   end
 
   def record(session)
-    session[:passcode] = @student.passcode.reverse
+    session[:verify] = @student.passcode.reverse
   end
 
   def session_verify(session)
-    session[:passcode] == @student.passcode.reverse
+    session[:verify] == @student.passcode.reverse
   end
 
 end
