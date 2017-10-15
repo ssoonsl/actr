@@ -30,7 +30,7 @@
                         span.label.label-danger<> Pending
                       - else
                         span.label.label-success<> Completed
-                    td.text-center = student.feedback_as_reviewer.count
+                    td.text-center class=(pending_teammate_feedback?(student) ? 'pending' : 'completed') = student.feedback_as_reviewer.count
 
         .tab-pane#self
           h1 Self-reflections
