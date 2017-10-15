@@ -16,7 +16,7 @@ table.table.table-hover.table-striped
       th
   tbody
     - @students.each do |student|
-      - if student != @student || Student.find_by(name: 'z.test')
+      - unless student.name == @student.name || 'z.test'
         tr
           td
             - if Team.exists?(student: @student, teammate: student) && !Feedback.exists?(reviewer: @student, reviewee: student)
