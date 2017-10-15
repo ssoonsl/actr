@@ -102,3 +102,13 @@ $colorDark: darken($color, 10%) transparent;
     transform: translateX(0);
   }
 }
+
+.tab-content {
+  .pending {
+    color: red;
+  }
+
+  .completed {
+    color: green;
+  }
+}
