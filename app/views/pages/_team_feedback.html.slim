@@ -16,12 +16,11 @@ table.table.table-hover.table-striped
       th
   tbody
     - @students.each do |student|
-      - unless student.name == @student.name || 'z.test'
-        tr
-          td
-            - if Team.exists?(student: @student, teammate: student) && !Feedback.exists?(reviewer: @student, reviewee: student)
-              span.label.label-danger<> Pending
-            - if Feedback.exists?(reviewer: @student, reviewee: student)
-              span.label.label-success<> Completed
-          td.pull-left
-            = link_to student.name, review_team_path(student_id: @student, id: student)
+      tr
+        td
+          - if Team.exists?(student: @student, teammate: student) && !Feedback.exists?(reviewer: @student, reviewee: student)
+            span.label.label-danger<> Pending
+          - if Feedback.exists?(reviewer: @student, reviewee: student)
+            span.label.label-success<> Completed
+        td.pull-left
+          = link_to student.name, review_team_path(student_id: @student, id: student)

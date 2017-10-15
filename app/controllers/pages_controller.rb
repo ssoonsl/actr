@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def review
     @student = Student.find(params[:student_id])
-    @students = Student.order(name: :asc)
+    @students = Student.where.not(name: 'z.test') - [@student]
   end
 
   def self
