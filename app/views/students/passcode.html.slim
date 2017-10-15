@@ -6,7 +6,7 @@
 
       = form_tag passcode_submit_path(student_id: @student), method: :post do
         .input-group
-            = text_field_tag :passcode, nil, class: 'form-control', required: true
+            = password_field_tag :passcode, nil, class: 'form-control', required: true
             span.input-group-btn
               = submit_tag 'Submit', class: 'btn btn-default'
 
