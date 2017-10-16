@@ -3,7 +3,7 @@ class Admin::PagesController < ApplicationController
   before_action :authenticate_admin!
 
   def manage
-    @students = Student.order(name: :asc)
+    @students = Student.retrieve_relevant_records
     @feedback = Feedback.all
   end
 
