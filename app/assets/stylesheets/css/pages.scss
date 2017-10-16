@@ -112,3 +112,7 @@ $colorDark: darken($color, 10%) transparent;
     color: green;
   }
 }
+
+@media (max-width: 450px) {
+  .mobile-hide { display: none !important; }
+}

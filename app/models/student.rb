@@ -11,4 +11,8 @@ class Student < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.retrieve_relevant_records(current_student={})
+    where.not(name: 'z.test').order(name: :asc) - [current_student]
+  end
+
 end

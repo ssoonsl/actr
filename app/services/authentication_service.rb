@@ -1,6 +1,6 @@
 class AuthenticationService
 
-  def initialize(student, passcode='')
+  def initialize(student, passcode={})
     @student = student
     @passcode = passcode
   end
