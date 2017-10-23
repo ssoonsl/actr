@@ -10,9 +10,10 @@ class Student < ApplicationRecord
   has_many :teammates, through: :teams_as_student, source: :teammate
 
   validates :name, presence: true
+  validates :passcode, presence: true
 
-  def self.retrieve_relevant_records(current_student={})
-    where.not(name: 'z.test').order(name: :asc) - [current_student]
+  def self.retrieve_relevant_records(current_student=nil)
+    where.not(name: 'z.test', id: current_student&.id).order(name: :asc)
   end
 
 end

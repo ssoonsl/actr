@@ -8,7 +8,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def export
-    @students = Student.order(name: :asc)
+    @students = Student.retrieve_relevant_records
     @feedback = Feedback.all
 
     respond_to do |format|
