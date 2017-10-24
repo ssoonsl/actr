@@ -19,7 +19,7 @@
           <Cell><Data ss:Type="String"><%= student.self_reflections.count %></Data></Cell>
           <% unless student.self_reflections.empty? %>
             <Cell><Data ss:Type="String"><%= student.self_reflections.first.answer1 %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= student.self_reflections.first.answer1 %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= student.self_reflections.first.answer2 %></Data></Cell>
           <% end %>
         </Row>
       <% end %>
